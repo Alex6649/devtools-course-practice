@@ -50,7 +50,7 @@ class RpnTest : public ::testing::Test {
     string output_;
 };
 
-TEST_F (RpnTest, Can_Parse_Number) {
+TEST_F(RpnTest, Can_Parse_Number) {
     string args("12");
 
     Act(args);

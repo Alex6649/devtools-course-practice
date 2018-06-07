@@ -29,8 +29,7 @@ bool RPN::validateNumberOfArguments(int argc, const char *argv[]) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else {
+    } else {
         return true;
     }
 }
