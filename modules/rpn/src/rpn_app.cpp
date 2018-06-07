@@ -12,19 +12,26 @@ RPN::RPN(void)
 void RPN::help(const char *appname, const char *message) {
     message_ =
         std::string(message) +
-        "This is reverse polish notation\n" +
-        "How to use:\n\n    " +
+        "This is reverse polish notation application\n" +
+        "In order to use this application," +
+        "the arguments should be provided\n\n    " +
+        "in the following order: \n\n   " +
 
         appname + " <expression_to_calculate>\n\n" +
 
-        "    -----------------------------------\n" +
-        "    ex. 2 + 3 * ( 3 - 3 ) \n" +
-        "    Allowed operators: +, -, *, (, ), ^ /.\n";
+        "    ---------------------------------------\n" +
+        "    ---------------------------------------\n\n" +
+        "    Allowed operators: +, -, *, (, ), ^ /.\n\n" +
+        "    ---------------------------------------\n" +
+        "    ---------------------------------------\n\n" +
+        "    Examples of expressions to calculate" +
+        "    1) 1 + 2; 3 - 1; 2 * 2; 12 / 6" +
+        "    2) 3 + ( 1 - 2 )" +
+        "    3) 4 ^ 2; 2 + ( 3 + 1) ^ 2";
 }
 
 bool RPN::validateNumberOfArguments(int argc, const char *argv[]) {
     if (argc == 1) {
-        help(argv[0]);
         return false;
     } else {
         return true;
