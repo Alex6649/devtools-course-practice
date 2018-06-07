@@ -19,14 +19,13 @@ void RPN::help(const char *appname, const char *message) {
 
         "    Octal and hexadecimal numbers are written " +
         "in the following format:\n" +
-        "        010  for octal numbers,\n" +
+        "        010  for octal  numbers,\n" +
         "        0x10  for hexadecimal numbers.\n\n" +
 
         "    Allowed operators: +, -, *, /.\n";
 }
 
-bool RPN::validateNumberOfArguments(int argc,
-    const char *argv[]) {
+bool RPN::validateNumberOfArguments(int argc, const char *argv[]) {
     if (argc == 1) {
         help(argv[0]);
         return false;
@@ -47,16 +46,22 @@ std::string RPN::operator ()(int argc, const char *argv[]) {
 
     int answer;
     try {
-        answer = Calc::calculate(expression);
+        std::string tmpAns = rpn::convertToRpn(expression);
+        answer = rpn::calculateRpn(tmpAns);
     }
-    catch (...) {
+    catch (int catchError) {
         help(argv[0]);
-        return message_;
+        switch (catchError) {
+        case 1000: return "POP_EMPTY_STACK";
+        case 1100: return "INVALID_SYMBOL";
+        case 1101: return "INVALID_OPERATOR";
+        case 1200: return "UNDEFINED_OPERATION";
+        case 1201: return "DIVISION_BY_ZERO";
+        default: return message_;;
+        }
     }
 
-    message_ += "Binary: " + Calc::toString(answer, 2) + "\nOctal: " +
-        Calc::toString(answer, 8) + "\nHexadecimal: " +
-        Calc::toString(answer, 16) + "\n";
+    message_ += "Result: " + std::to_string(answer) + "\n";
 
     return message_;
 }
