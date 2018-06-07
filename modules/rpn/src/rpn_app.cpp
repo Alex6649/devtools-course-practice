@@ -13,16 +13,13 @@ void RPN::help(const char *appname, const char *message) {
     message_ =
         std::string(message) +
         "This is reverse polish notation application\n" +
-        "In order to use this application," +
-        "the arguments should be provided\n\n    " +
-        "in the following order: \n\n   " +
+        "In order to use this application,\n" +
+        "provide the arguments like this\n\n    " +
 
         appname + " <expression_to_calculate>\n\n" +
 
-        "    ---------------------------------------\n" +
         "    ---------------------------------------\n\n" +
         "    Allowed operators: +, -, *, (, ), ^ /.\n\n" +
-        "    ---------------------------------------\n" +
         "    ---------------------------------------\n\n" +
         "    Examples of expressions to calculate" +
         "    1) 1 + 2; 3 - 1; 2 * 2; 12 / 6" +
