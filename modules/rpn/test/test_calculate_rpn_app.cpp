@@ -41,10 +41,6 @@ class RpnTest : public ::testing::Test {
         EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-    void Assert_Any_Throw(string expected) {
-        EXPECT_ANY_THROW(RE::PartialMatch(output_, expected));
-    }
-
  private:
     RPN app_;
     string output_;
