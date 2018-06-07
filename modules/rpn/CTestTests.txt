@@ -5,6 +5,13 @@
 set(prefix "${MODULE}")
 
 add_test(
+    NAME ${prefix}Can_Run
+    COMMAND ${APPLICATION}
+)
+set_tests_properties (${prefix}Can_Run PROPERTIES
+    LABELS "${MODULE}")
+
+add_test(
     NAME ${prefix}Can_Parse_Number
     COMMAND ${APPLICATION} 12
 )
