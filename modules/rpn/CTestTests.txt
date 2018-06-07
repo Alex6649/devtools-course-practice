@@ -54,7 +54,7 @@ set_tests_properties (${prefix}Exception_on_Division_by_Zero PROPERTIES
 
 add_test(
     NAME ${prefix}Can_Exponent
-    COMMAND ${APPLICATION} 2 ^ 2
+    COMMAND ${APPLICATION} 2 ^ 3
 )
 set_tests_properties (${prefix}Can_Exponent PROPERTIES
     PASS_REGULAR_EXPRESSION "Result: 8"
