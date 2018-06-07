@@ -12,17 +12,13 @@ RPN::RPN(void)
 void RPN::help(const char *appname, const char *message) {
     message_ =
         std::string(message) +
-        "This calculator works with different numeral systems " +
-        "(BIN, OCT, HEX).\n\n    " +
+        "This is reverse polish notation" +
+        "How to use:\n\n    " +
 
         appname + " <expression_to_calculate>\n\n" +
 
-        "    Octal and hexadecimal numbers are written " +
-        "in the following format:\n" +
-        "        010  for octal  numbers,\n" +
-        "        0x10  for hexadecimal numbers.\n\n" +
-
-        "    Allowed operators: +, -, *, /.\n";
+        "    ex. 2 + 3 * ( 3 - 3 ) " +
+        "    Allowed operators: +, -, *, (, ), ^ /.\n";
 }
 
 bool RPN::validateNumberOfArguments(int argc, const char *argv[]) {
