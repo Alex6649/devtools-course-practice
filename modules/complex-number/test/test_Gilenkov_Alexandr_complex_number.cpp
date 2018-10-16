@@ -37,7 +37,7 @@ TEST(Gilenkov_Alexandr_ComplexNumberTest, Multiple_Is_Commutative) {
     EXPECT_EQ(mult1, mult2);
 }
 
-TEST(Gilenkov_Alexandr_ComplexNumberTest, 
+TEST(Gilenkov_Alexandr_ComplexNumberTest,
          Multiple_Not_Equal_Number_Equal_Null) {
     // ARRANGE
     ComplexNumber z1(1.0, 2.0);
