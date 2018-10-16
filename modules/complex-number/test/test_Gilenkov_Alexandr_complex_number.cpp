@@ -1,4 +1,4 @@
-// Copyright 2018 Гиленков Александр
+// Copyright 2018 Gilenkov Alexandr
 
 #include <gtest/gtest.h>
 #include "include/complex_number.h"
@@ -37,7 +37,8 @@ TEST(Gilenkov_Alexandr_ComplexNumberTest, Multiple_Is_Commutative) {
     EXPECT_EQ(mult1, mult2);
 }
 
-TEST(Gilenkov_Alexandr_ComplexNumberTest, Multiple_Not_Equal_Number_Equal_Null) {
+TEST(Gilenkov_Alexandr_ComplexNumberTest, 
+         Multiple_Not_Equal_Number_Equal_Null) {
     // ARRANGE
     ComplexNumber z1(1.0, 2.0);
     ComplexNumber z2(-1.0, -2.0);
