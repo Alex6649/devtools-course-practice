@@ -80,7 +80,7 @@ TEST(InterpolationalSearchTest,
   auto myrand = rand;
   const int arr_size = 10000;
   const int elem_indx = 62;
-  auto stupid_lambda = [&elem_indx]()->int{return elem_indx;};
+  auto stupid_lambda = [elem_indx]()->int{return elem_indx;};
   std::vector<int> arr(arr_size);
   for (auto& elem : arr) elem = myrand();
   std::sort(arr.begin(), arr.end());
