@@ -18,7 +18,7 @@ TEST(Gilenkov_Alexandr_ComplexNumberTest, Addition_Is_Associative) {
 TEST(Gilenkov_Alexandr_ComplexNumberTest, Addition_Is_Commutative) {
     // ARRANGE
     ComplexNumber z1(1.0, 2.0);
-	ComplexNumber z2(3.4, 5.6);
+    ComplexNumber z2(3.4, 5.6);
     // ACT
     ComplexNumber sum1 = z1 + z2;
     ComplexNumber sum2 = z2 + z1;
