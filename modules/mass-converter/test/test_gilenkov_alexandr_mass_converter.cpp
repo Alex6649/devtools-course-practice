@@ -1,0 +1,535 @@
+// Copyright 2018 Gilenkov Alexandr
+
+#include <gtest/gtest.h>
+#include "include/MassConverter.h"
+
+TEST(MassConverter, test_correct_value_with_true) {
+    // Arrange
+    double val = 43.564;
+    // Act
+    MassConverter conv;
+    // Assert
+    EXPECT_TRUE(conv.isCorrect(val));
+}
+TEST(MassConverter, test_correct_value_with_false) {
+    // Arrange
+    double val = -43.564;
+    // Act
+    MassConverter conv;
+    // Assert
+    EXPECT_FALSE(conv.isCorrect(val));
+}
+TEST(MassConverter, Can_Create_Mass_Converter) {
+    // Act & Assert
+    ASSERT_NO_THROW(MassConverter conv);
+}
+TEST(MassConverter, Transform_Tonn_to_Kilogramm) {
+    // Arrange
+    double tonn = 13.440;
+    double res = 13440;
+    // Act
+    MassConverter conv;
+    // Assert
+    EXPECT_DOUBLE_EQ(conv.tonnToKilogramm(tonn), res);
+}
+TEST(MassConverter, Throw_with_Transform_Tonn_to_Kilogramm) {
+    // Arrange
+    double tonn = -13.440;
+    // Act
+    MassConverter conv;
+    // Assert
+    ASSERT_ANY_THROW(conv.tonnToKilogramm(tonn));
+}
+TEST(MassConverter, Transform_Kilogramm_To_Tonn) {
+    // Arrange
+    double kilo = 17650;
+    double res = 17.65;
+    // Act
+    MassConverter conv;
+    // Assert
+    EXPECT_DOUBLE_EQ(conv.kilogrammToTonn(kilo), res);
+}
+TEST(MassConverter, Throw_with_Transform_Kilogramm_To_Tonn) {
+    // Arrange
+    double kilo = -5980;
+    // Act
+    MassConverter conv;
+    // Assert
+    ASSERT_ANY_THROW(conv.kilogrammToTonn(kilo));
+}
+TEST(MassConverter, Transform_Tonn_To_Gramm) {
+	// Arrange
+	double tonn = 9;
+	double res = 9000000;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.tonnToGramm(tonn), res);
+}
+TEST(MassConverter, Throw_with_Transform_Tonn_To_Gramm) {
+	// Arrange
+	double tonn = -5;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.tonnToGramm(tonn));
+}
+TEST(MassConverter, Transform_Gramm_To_Tonn) {
+	// Arrange
+	double gramm = 1765000;
+	double res = 1.765;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.grammToTonn(gramm), res);
+}
+TEST(MassConverter, Throw_with_Transform_Gramm_To_Tonn) {
+	// Arrange
+	double gramm = -5980000;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.grammToTonn(gramm));
+}
+TEST(MassConverter, Transform_Tonn_To_Stoun) {
+	// Arrange
+	double tonn = 5;
+	double res = 787.365;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.tonnToStoun(tonn), res);
+}
+TEST(MassConverter, Throw_with_Transform_Tonn_To_Stoun) {
+	// Arrange
+	double tonn = -9;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.tonnToStoun(tonn));
+}
+TEST(MassConverter, Transform_Stoun_To_Tonn) {
+	// Arrange
+	double stoun = 1259.78;
+	double res = 8;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.stounToTonn(stoun), res);
+}
+TEST(MassConverter, Throw_with_Transform_Stoun_To_Tonn) {
+	// Arrange
+	double stoun = -5980;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.stounToTonn(stoun));
+}
+TEST(MassConverter, Transform_Tonn_To_Funt) {
+	// Arrange
+	double tonn = 1;
+	double res = 2204.62;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.tonnToFunt(tonn), res);
+}
+TEST(MassConverter, Throw_with_Transform_Tonn_To_Funt) {
+	// Arrange
+	double tonn = -2;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.tonnToFunt(tonn));
+}
+TEST(MassConverter, Transform_Funt_To_Tonn) {
+	// Arrange
+	double funt = 13227.7;
+	double res = 6;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.funtToTonn(funt), res);
+}
+TEST(MassConverter, Throw_with_Transform_Funt_To_Tonn) {
+	// Arrange
+	double funt = -5980;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.funtToTonn(funt));
+}
+TEST(MassConverter, Transform_Tonn_To_Uncia) {
+	// Arrange
+	double tonn = 0.134;
+	double res = 4726.7109;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.tonnToUncia(tonn), res);
+}
+TEST(MassConverter, Throw_with_Transform_Tonn_To_Uncia) {
+	// Arrange
+	double tonn = -5;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.tonnToUncia(tonn));
+}
+TEST(MassConverter, Transform_Uncia_To_Tonn) {
+	// Arrange
+	double uncia = 141096;
+	double res = 4;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.unciaToTonn(uncia), res);
+}
+TEST(MassConverter, Throw_with_Transform_Uncia_To_Tonn) {
+	// Arrange
+	double uncia = -598830;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.unciaToTonn(uncia));
+}
+TEST(MassConverter, Transform_Kilogramm_To_Gramm) {
+	// Arrange
+	double kilo = 153;
+	double res = 153000;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.kilogrammToGramm(kilo), res);
+}
+TEST(MassConverter, Throw_with_Transform_Kilogramm_To_Gramm) {
+	// Arrange
+	double kilo = -50;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.kilogrammToGramm(kilo));
+}
+TEST(MassConverter, Transform_Gramm_To_Kilogramm) {
+	// Arrange
+	double gramm = 141096;
+	double res = 141.096;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.grammToKilogramm(gramm), res);
+}
+TEST(MassConverter, Throw_with_Transform_Gramm_To_Kilogramm) {
+	// Arrange
+	double gramm = -598830;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.grammToKilogramm(gramm));
+}
+TEST(MassConverter, Transform_Kilogramm_To_Stoun) {
+	// Arrange
+	double kilo = 500;
+	double res = 78.7365;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.kilogrammToStoun(kilo), res);
+}
+TEST(MassConverter, Throw_with_Transform_Kilogramm_To_Stoun) {
+	// Arrange
+	double kilo = -598830;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.kilogrammToStoun(kilo));
+}
+TEST(MassConverter, Transform_Stoun_To_Kilogramm) {
+	// Arrange
+	double stoun = 141;
+	double res = 895.391;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.stounToKilogramm(stoun), res);
+}
+TEST(MassConverter, Throw_with_Transform_Stoun_to_Kilogramm) {
+	// Arrange
+	double stoun = -59;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.stounToKilogramm(stoun));
+}
+TEST(MassConverter, Transform_Kilogramm_To_Funt) {
+	// Arrange
+	double kilo = 87;
+	double res = 191.802;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.kilogrammToFunt(kilo), res);
+}
+TEST(MassConverter, Throw_with_Transform_Kilogramm_To_Funt) {
+	// Arrange
+	double kilo = -65;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.kilogrammToFunt(kilo));
+}
+TEST(MassConverter, Transform_Funt_To_Kilogramm) {
+	// Arrange
+	double funt = 191.802;
+	double res = 87;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.funtToKilogramm(funt), res);
+}
+TEST(MassConverter, Throw_with_Transform_Funt_To_Kilogramm) {
+	// Arrange
+	double funt = -190;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.funtToKilogramm(funt));
+}
+TEST(MassConverter, Transform_Uncia_To_Tonn) {
+	// Arrange
+	double uncia = 141096;
+	double res = 4;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.unciaToTonn(uncia), res);
+}
+TEST(MassConverter, Throw_with_Transform_Uncia_To_Tonn) {
+	// Arrange
+	double uncia = -598830;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.unciaToTonn(uncia));
+}
+TEST(MassConverter, Transform_Kilogramm_To_Uncia) {
+	// Arrange
+	double kilo = 87;
+	double res = 3068.83;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.kilogrammToUncia(kilo), res);
+}
+TEST(MassConverter, Throw_with_Transform_Kilogramm_To_Uncia) {
+	// Arrange
+	double kilo = -90;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.kilogrammToUncia(kilo));
+}
+TEST(MassConverter, Transform_Gramm_To_Stoun) {
+	// Arrange
+	double gramm = 70000;
+	double res = 11.023113;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.grammToStoun(gramm), res);
+}
+TEST(MassConverter, Throw_with_Transform_Gramm_To_Stoun) {
+	// Arrange
+	double gramm = -8975;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.grammToStoun(gramm));
+}
+TEST(MassConverter, Transform_Stoun_To_Gramm) {
+	// Arrange
+	double stoun = 11.023113;
+	double res = 70000;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.stounToGramm(stoun), res);
+}
+TEST(MassConverter, Throw_with_Transform_Stoun_To_Gramm) {
+	// Arrange
+	double stoun = -5;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.stounToGramm(stoun));
+}
+TEST(MassConverter, Transform_Gramm_To_Funt) {
+	// Arrange
+	double gramm = 70000;
+	double res = 154.32358;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.grammToFunt(gramm), res);
+}
+TEST(MassConverter, Throw_with_Transform_Gramm_To_Funt) {
+	// Arrange
+	double gramm = -783434;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.grammToFunt(gramm));
+}
+TEST(MassConverter, Transform_Funt_To_Gramm) {
+	// Arrange
+	double funt = 154.32358;
+	double res = 70000;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.funtToGramm(funt), res);
+}
+TEST(MassConverter, Throw_with_Transform_Funt_To_Gramm) {
+	// Arrange
+	double funt = -37;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.funtToGramm(funt));
+}
+TEST(MassConverter, Transform_Gramm_To_Uncia) {
+	// Arrange
+	double gramm = 70000;
+	double res = 2469.1773;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.grammToUncia(gramm), res);
+}
+TEST(MassConverter, Throw_with_Transform_Gramm_To_Uncia) {
+	// Arrange
+	double gramm = -9876;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.grammToUncia(gramm));
+}
+TEST(MassConverter, Transform_Uncia_To_Gramm) {
+	// Arrange
+	double uncia = 2469.1773;
+	double res = 70000;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.unciaToGramm(uncia), res);
+}
+TEST(MassConverter, Throw_with_Transform_Uncia_To_Gramm) {
+	// Arrange
+	double uncia = -598;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.unciaToGramm(uncia));
+}
+TEST(MassConverter, Transform_Stoun_To_Funt) {
+	// Arrange
+	double stoun = 89;
+	double res = 1246;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.stounToFunt(stoun), res);
+}
+TEST(MassConverter, Throw_with_Transform_Stoun_To_Funt) {
+	// Arrange
+	double stoun = -59;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.stounToFunt(stoun));
+}
+TEST(MassConverter, Transform_Funt_To_Stoun) {
+	// Arrange
+	double funt=1246;
+	double res = 89;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.funtToStoun(funt), res);
+}
+TEST(MassConverter, Throw_with_Transform_Funt_To_Stoun) {
+	// Arrange
+	double funt = -1234;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.funtToStoun(funt));
+}
+TEST(MassConverter, Transform_Stoun_To_Uncia) {
+	// Arrange
+	double stoun = 5;
+	double res = 1120;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.stounToUncia(stoun), res);
+}
+TEST(MassConverter, Throw_with_Transform_Stoun_To_Uncia) {
+	// Arrange
+	double stoun = -59;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.stounToUncia(stoun));
+}
+TEST(MassConverter, Transform_Uncia_To_Stoun) {
+	// Arrange
+	double uncia = 1120;
+	double res = 5;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.unciaToStoun(uncia), res);
+}
+TEST(MassConverter, Throw_with_Transform_Uncia_To_Stoun) {
+	// Arrange
+	double uncia = -598;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.tonnToStoun(uncia));
+}
+TEST(MassConverter, Transform_Funt_To_Uncia) {
+	// Arrange
+	double funt = 67;
+	double res = 1072;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.funtToUncia(funt), res);
+}
+TEST(MassConverter, Throw_with_Transform_Funt_To_Uncia) {
+	// Arrange
+	double funt=-89;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.funtToUncia(funt));
+}
+TEST(MassConverter, Transform_Uncia_To_Funt) {
+	// Arrange
+	double uncia = 1072;
+	double res = 67;
+	// Act
+	MassConverter conv;
+	// Assert
+	EXPECT_DOUBLE_EQ(conv.unciaToFunt(uncia), res);
+}
+TEST(MassConverter, Throw_with_Transform_Uncia_To_Funt) {
+	// Arrange
+	double uncia = -598;
+	// Act
+	MassConverter conv;
+	// Assert
+	ASSERT_ANY_THROW(conv.unciaToFunt(uncia));
+}
