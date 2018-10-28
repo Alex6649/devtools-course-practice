@@ -1,6 +1,6 @@
 // Copyright 2018 Gilenkov Alexandr
 
-#include "include/MassConverter.h"
+#include "include/mass-converter.h"
 
 bool MassConverter::isCorrect(const double& value) const {
     const double eps = 0.01;
