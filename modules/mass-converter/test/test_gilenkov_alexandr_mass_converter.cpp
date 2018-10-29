@@ -210,7 +210,7 @@ TEST(Mass_Converter, Transform_Gramm_To_Kilogramm) {
     MassConverter conv;
     // Assert
     EXPECT_DOUBLE_EQ(conv.grammToKilogramm(gramm), res);
-} 
+}
 TEST(Mass_Converter, Throw_with_Transform_Gramm_To_Kilogramm) {
     // Arrange
     double gramm = -598830;
@@ -261,7 +261,7 @@ TEST(Mass_Converter, Transform_Kilogramm_To_Funt) {
     MassConverter conv;
     // Assert
     EXPECT_DOUBLE_EQ(conv.kilogrammToFunt(kilo), res);
-} 
+}
 TEST(Mass_Converter, Throw_with_Transform_Kilogramm_To_Funt) {
     // Arrange
     double kilo = -65;
@@ -434,7 +434,7 @@ TEST(Mass_Converter, Throw_with_Transform_Stoun_To_Funt) {
 }
 TEST(Mass_Converter, Transform_Funt_To_Stoun) {
     // Arrange
-    double funt=1246;
+    double funt = 1246;
     double res = 89;
     // Act
     MassConverter conv;
