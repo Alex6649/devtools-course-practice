@@ -5,8 +5,8 @@
 
 class MassConverter {
 public:
-    MassConverter(){ }
-    ~MassConverter(){ }
+    MassConverter() { }
+    ~MassConverter() { }
 
     double tonnToKilogramm(const double &tonn) const;
     double kilogrammToTonn(const double &kilogramm) const;
