@@ -176,15 +176,6 @@ TEST(Mass_Converter, Throw_with_Transform_Tonn_To_Uncia) {
 	// Assert
 	ASSERT_ANY_THROW(conv.tonnToUncia(tonn));
 }
-TEST(Mass_Converter, Transform_Uncia_To_Tonn) {
-	// Arrange
-	double uncia = 141096;
-	double res = 4;
-	// Act
-	MassConverter conv;
-	// Assert
-	EXPECT_DOUBLE_EQ(conv.unciaToTonn(uncia), res);
-}
 TEST(Mass_Converter, Throw_with_Transform_Uncia_To_Tonn) {
 	// Arrange
 	double uncia = -598830;
@@ -303,14 +294,6 @@ TEST(Mass_Converter, Transform_Uncia_To_Tonn) {
 	MassConverter conv;
 	// Assert
 	EXPECT_DOUBLE_EQ(conv.unciaToTonn(uncia), res);
-}
-TEST(Mass_Converter, Throw_with_Transform_Uncia_To_Tonn) {
-	// Arrange
-	double uncia = -598830;
-	// Act
-	MassConverter conv;
-	// Assert
-	ASSERT_ANY_THROW(conv.unciaToTonn(uncia));
 }
 TEST(Mass_Converter, Transform_Kilogramm_To_Uncia) {
 	// Arrange
