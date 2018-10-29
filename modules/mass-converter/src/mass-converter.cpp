@@ -2,6 +2,9 @@
 
 #include "include/mass-converter.h"
 
+MassConverter() { }
+~MassConverter() { }
+
 bool MassConverter::isCorrect(const double& value) const {
     const double eps = 0.01;
     if ((value < 0) || (value < eps && value > -eps))

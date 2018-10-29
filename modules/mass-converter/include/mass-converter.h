@@ -4,10 +4,9 @@
 #define MODULES_MASS_CONVERTER_INCLUDE_MASS_CONVERTER_H_
 
 class MassConverter {
-
-public: 
-    MassConverter(){}
-    ~MassConverter(){}
+public:
+    MassConverter();
+    ~MassConverter();
 
     double tonnToKilogramm(const double &tonn) const;
     double kilogrammToTonn(const double &kilogramm) const;
