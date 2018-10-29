@@ -4,7 +4,7 @@
 #define MODULES_MASS_CONVERTER_INCLUDE_MASS_CONVERTER_H_
 
 class MassConverter {
-public:
+ public:
     MassConverter() { }
     ~MassConverter() { }
 
