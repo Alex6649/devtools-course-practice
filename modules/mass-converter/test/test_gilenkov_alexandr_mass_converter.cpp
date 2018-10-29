@@ -111,7 +111,7 @@ TEST(Mass_Converter, Throw_with_Transform_Tonn_To_Stoun) {
 TEST(Mass_Converter, Transform_Stoun_To_Tonn) {
 	// Arrange
 	double stoun = 1259.78;
-	double res = 8;
+	double res = 7.9999745988201143;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -145,7 +145,7 @@ TEST(Mass_Converter, Throw_with_Transform_Tonn_To_Funt) {
 TEST(Mass_Converter, Transform_Funt_To_Tonn) {
 	// Arrange
 	double funt = 13227.7;
-	double res = 6;
+	double res = 5.9999909281418118;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -162,7 +162,7 @@ TEST(Mass_Converter, Throw_with_Transform_Funt_To_Tonn) {
 TEST(Mass_Converter, Transform_Tonn_To_Uncia) {
 	// Arrange
 	double tonn = 0.134;
-	double res = 4726.7109;
+	double res = 4726.7160000000003;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -221,7 +221,7 @@ TEST(Mass_Converter, Throw_with_Transform_Gramm_To_Kilogramm) {
 TEST(Mass_Converter, Transform_Kilogramm_To_Stoun) {
 	// Arrange
 	double kilo = 500;
-	double res = 78.7365;
+	double res = 78.740157480314963;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -238,7 +238,7 @@ TEST(Mass_Converter, Throw_with_Transform_Kilogramm_To_Stoun) {
 TEST(Mass_Converter, Transform_Stoun_To_Kilogramm) {
 	// Arrange
 	double stoun = 141;
-	double res = 895.391;
+	double res = 895.34999999999991;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -255,7 +255,7 @@ TEST(Mass_Converter, Throw_with_Transform_Stoun_to_Kilogramm) {
 TEST(Mass_Converter, Transform_Kilogramm_To_Funt) {
 	// Arrange
 	double kilo = 87;
-	double res = 191.802;
+	double res = 191.83500000000001;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -272,7 +272,7 @@ TEST(Mass_Converter, Throw_with_Transform_Kilogramm_To_Funt) {
 TEST(Mass_Converter, Transform_Funt_To_Kilogramm) {
 	// Arrange
 	double funt = 191.802;
-	double res = 87;
+	double res = 86.985034013605443;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -298,7 +298,7 @@ TEST(Mass_Converter, Transform_Uncia_To_Tonn) {
 TEST(Mass_Converter, Transform_Kilogramm_To_Uncia) {
 	// Arrange
 	double kilo = 87;
-	double res = 3068.83;
+	double res = 3068.8380000000002;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -315,7 +315,7 @@ TEST(Mass_Converter, Throw_with_Transform_Kilogramm_To_Uncia) {
 TEST(Mass_Converter, Transform_Gramm_To_Stoun) {
 	// Arrange
 	double gramm = 70000;
-	double res = 11.023113;
+	double res = 11.02311342169566;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -332,7 +332,7 @@ TEST(Mass_Converter, Throw_with_Transform_Gramm_To_Stoun) {
 TEST(Mass_Converter, Transform_Stoun_To_Gramm) {
 	// Arrange
 	double stoun = 11.023113;
-	double res = 70000;
+	double res = 69999.997322109004;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -349,7 +349,7 @@ TEST(Mass_Converter, Throw_with_Transform_Stoun_To_Gramm) {
 TEST(Mass_Converter, Transform_Gramm_To_Funt) {
 	// Arrange
 	double gramm = 70000;
-	double res = 154.32358;
+	double res = 154.32370941286442;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -366,7 +366,7 @@ TEST(Mass_Converter, Throw_with_Transform_Gramm_To_Funt) {
 TEST(Mass_Converter, Transform_Funt_To_Gramm) {
 	// Arrange
 	double funt = 154.32358;
-	double res = 70000;
+	double res = 69999.941299359998;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -383,7 +383,7 @@ TEST(Mass_Converter, Throw_with_Transform_Funt_To_Gramm) {
 TEST(Mass_Converter, Transform_Gramm_To_Uncia) {
 	// Arrange
 	double gramm = 70000;
-	double res = 2469.1773;
+	double res = 2469.1358024691358;
 	// Act
 	MassConverter conv;
 	// Assert
@@ -400,7 +400,7 @@ TEST(Mass_Converter, Throw_with_Transform_Gramm_To_Uncia) {
 TEST(Mass_Converter, Transform_Uncia_To_Gramm) {
 	// Arrange
 	double uncia = 2469.1773;
-	double res = 70000;
+	double res = 70001.176454999993;
 	// Act
 	MassConverter conv;
 	// Assert
