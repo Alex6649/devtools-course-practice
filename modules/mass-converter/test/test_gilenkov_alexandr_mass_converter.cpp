@@ -520,7 +520,7 @@ TEST(Mass_Converter, Throw_with_Transform_Uncia_To_Funt) {
 TEST(Mass_Converter, Transform_Uncia_To_Kilogramm) {
     // Arrange
     double uncia = 87;
-    double res = 2.46640585;
+    double res = 2.4664058513352609;
     // Act
     MassConverter conv;
     // Assert
