@@ -3,12 +3,20 @@
 #ifndef MODULES_MASS_CONVERTER_INCLUDE_MASS_CONVERTER_H_
 #define MODULES_MASS_CONVERTER_INCLUDE_MASS_CONVERTER_H_
 
+enum MassUnit {
+    Tonn, Kilogramm, Gramm, Stone, Pound, Ounce
+};
+double ConvMatrix[] = { 0.001,1,1000,0.157473,2.205,35.274 };
+
 class MassConverter {
  public:
     MassConverter() { }
     ~MassConverter() { }
 
-    double tonnToKilogramm(const double &tonn) const;
+    bool isCorrect(const double &value) const;
+    double convert(double input, const char* from, const char* to);
+	MassUnit ParseMassUnit(const char* arg);
+    /*double tonnToKilogramm(const double &tonn) const;
     double kilogrammToTonn(const double &kilogramm) const;
 
     double tonnToGramm(const double &tonn) const;
@@ -51,9 +59,7 @@ class MassConverter {
     double unciaToStoun(const double &uncia) const;
 
     double funtToUncia(const double &funt) const;
-    double unciaToFunt(const double &uncia) const;
-
-    bool isCorrect(const double &value) const;
+    double unciaToFunt(const double &uncia) const;*/
 };
 
 #endif  // MODULES_MASS_CONVERTER_INCLUDE_MASS_CONVERTER_H_
