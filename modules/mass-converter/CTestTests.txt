@@ -64,5 +64,5 @@ add_test(
     COMMAND ${APPLICATION} 2 Tonn Kilogramm
 )
 set_tests_properties (${prefix}_can_Convert_Lengths PROPERTIES
-    PASS_REGULAR_EXPRESSION "2 tonns is 2000 kilogramms"
+    PASS_REGULAR_EXPRESSION "2 Tonn is 2000 Kilogramm"
     LABELS "${MODULE}")

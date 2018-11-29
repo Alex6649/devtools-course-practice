@@ -4,10 +4,7 @@
 #define MODULES_MASS_CONVERTER_INCLUDE_MASSCONVERTER_APP_H_
 
 #include <string>
-
-enum MassUnit {
-    Gramm, Kilogramm, Tonn, Stoun, Funt, Uncia
-};
+#include "../include/mass-converter.h"
 
 class MassConverter_app {
  public:

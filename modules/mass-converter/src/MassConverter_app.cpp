@@ -1,7 +1,5 @@
 // Copyright 2018 Gilenkov Alexandr
 
-#include "include/MassConverter_app.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -10,7 +8,10 @@
 #include <string>
 #include <sstream>
 #include <iomanip>
-#include "include/mass-converter.h"
+
+#include "../include/MassConverter_app.h"
+#include "../include/mass-converter.h"
+
 
 MassConverter_app::MassConverter_app() : message_("") {}
 
@@ -23,7 +24,7 @@ void MassConverter_app::help(const char* appname, const char* message) {
         "<targetMassUnit>\n\n" +
         "Where the first argument is positive double-precision number, " +
         "and mass units are one of Tonn, Kilogramm, Gramm, " +
-        "Stoun, Funt, Uncia.\n";
+        "Stone, Pound, Ounce.\n";
 }
 
 bool MassConverter_app::validateNumberOfArguments(int argc,
@@ -31,9 +32,11 @@ bool MassConverter_app::validateNumberOfArguments(int argc,
     if (argc == 1) {
     help(argv[0]);
         return false;
-    } else if (argc != 4) {
-        help(argv[0], "ERROR: Should be 3 arguments.\n\n");
-        return false;
+    } else {
+        if (argc != 4) {
+            help(argv[0], "ERROR: Should be 3 arguments.\n\n");
+            return false;
+        }
     }
     return true;
 }
@@ -48,23 +51,23 @@ double ParseDouble(const char* arg) {
 }
 
 MassUnit ParseMassUnit(const char* arg) {
-    MassUnit massUnit;
+    MassUnit mUnit;
     if (strcmp(arg, "Tonn") == 0) {
-        massUnit = Tonn;
+        mUnit = Tonn;
     } else if (strcmp(arg, "Kilogramm") == 0) {
-        massUnit = Kilogramm;
+        mUnit = Kilogramm;
     } else if (strcmp(arg, "Gramm") == 0) {
-        massUnit = Gramm;
-    } else if (strcmp(arg, "Stoun") == 0) {
-        massUnit = Stoun;
-    } else if (strcmp(arg, "Funt") == 0) {
-        massUnit = Funt;
-    } else if (strcmp(arg, "Uncia") == 0) {
-        massUnit = Uncia;
+        mUnit = Gramm;
+    } else if (strcmp(arg, "Stone") == 0) {
+        mUnit = Stone;
+    } else if (strcmp(arg, "Pound") == 0) {
+        mUnit = Pound;
+    } else if (strcmp(arg, "Ounce") == 0) {
+        mUnit = Ounce;
     } else {
         throw std::string("Wrong mass unit format!");
     }
-    return massUnit;
+    return mUnit;
 }
 
 std::string MassConverter_app::operator()(int argc, const char** argv) {
@@ -83,14 +86,19 @@ std::string MassConverter_app::operator()(int argc, const char** argv) {
     MassConverter massConv;
     std::ostringstream stream;
     try {
-        double res;
-        switch (args.originalMassUnit) {
+        double res = massConv.convert(args.originalValue, argv[2], argv[3]);
+            if (args.originalMassUnit != args.targetMassUnit) {
+                stream << args.originalValue << " " << argv[2] << " is "
+                    << res << " " << argv[3];
+            } else {
+                throw std::string("Error! Unknown conversion");
+            }
+        /*switch (args.originalMassUnit) {
         case Tonn:
             switch (args.targetMassUnit) {
             case Kilogramm:
                 res = massConv.tonnToKilogramm(args.originalValue);
-                stream << args.originalValue << " tonns is "
-                    << res << " kilogramms";
+                
                 break;
             case Stoun:
                 res = massConv.tonnToStoun(args.originalValue);
@@ -257,7 +265,7 @@ std::string MassConverter_app::operator()(int argc, const char** argv) {
                 break;
             }
             break;
-        }
+        }*/
     }
     catch (std::string& str) {
          return str;

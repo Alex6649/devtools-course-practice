@@ -13,8 +13,7 @@ using std::vector;
 using std::string;
 
 class MassConverterAppTest : public ::testing::Test {
-protected:
-
+ protected:
     void Act(vector<string> args_) {
         vector<const char*> options;
         options.push_back("appname");
@@ -30,7 +29,7 @@ protected:
          EXPECT_TRUE(RE::PartialMatch(output_, RE(expected)));
     }
 
-private:
+ private:
     MassConverter_app app_;
     string output_;
 };
@@ -60,7 +59,7 @@ TEST_F(MassConverterAppTest, Can_Detect_Negative_Mass) {
 }
 
 TEST_F(MassConverterAppTest, Can_Detect_Wrong_Mass_Unit_Format) {
-    vector<string> args = { "2", "Kilogramms", "Gramm" };
+    vector<string> args = { "2", "Kilogrmm", "Gramm" };
     Act(args);
     Assert("Wrong mass unit format!");
 }
@@ -84,19 +83,19 @@ TEST_F(MassConverterAppTest, Can_Detect_Unknown_Conversion_3) {
 }
 
 TEST_F(MassConverterAppTest, Can_Detect_Unknown_Conversion_4) {
-    vector<string> args = { "2", "Stoun", "Stoun" };
+    vector<string> args = { "2", "Stone", "Stone" };
     Act(args);
     Assert("Error! Unknown conversion");
 }
 
 TEST_F(MassConverterAppTest, Can_Detect_Unknown_Conversion_5) {
-    vector<string> args = { "2", "Funt", "Funt" };
+    vector<string> args = { "2", "Pound", "Pound" };
     Act(args);
     Assert("Error! Unknown conversion");
 }
 
 TEST_F(MassConverterAppTest, Can_Detect_Unknown_Conversion_6) {
-    vector<string> args = { "2", "Uncia", "Uncia" };
+    vector<string> args = { "2", "Ounce", "Ounce" };
     Act(args);
     Assert("Error! Unknown conversion");
 }
@@ -104,155 +103,155 @@ TEST_F(MassConverterAppTest, Can_Detect_Unknown_Conversion_6) {
 TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Kilogramm) {
     vector<string> args = { "1", "Tonn", "Kilogramm" };
     Act(args);
-    Assert("1 tonns is 1000 kilogramms");
+    Assert("1 Tonn is 1000 Kilogramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Stoun) {
-    vector<string> args = { "1", "Tonn", "Stoun" };
+TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Stone) {
+    vector<string> args = { "1", "Tonn", "Stone" };
     Act(args);
-    Assert("1 tonns is 157.473 stouns");
+    Assert("1 Tonn is 157.473 Stone");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Funt) {
-    vector<string> args = { "1", "Tonn", "Funt" };
+TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Pound) {
+    vector<string> args = { "1", "Tonn", "Pound" };
     Act(args);
-    Assert("1 tonns is 2204.62 funts");
+    Assert("1 Tonn is 2205 Pound");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Uncia) {
-    vector<string> args = { "1", "Tonn", "Uncia" };
+TEST_F(MassConverterAppTest, Can_Convert_Tonn_To_Ounce) {
+    vector<string> args = { "1", "Tonn", "Ounce" };
     Act(args);
-    Assert("1 tonns is 35274 uncia");
+    Assert("1 Tonn is 35274 Ounce");
 }
 
 TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Tonn) {
     vector<string> args = { "1", "Kilogramm", "Tonn" };
     Act(args);
-    Assert("1 kilogramms is 0.001 tonns");
+    Assert("1 Kilogramm is 0.001 Tonn");
 }
 
 TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Gramm) {
     vector<string> args = { "1", "Kilogramm", "Gramm" };
     Act(args);
-    Assert("1 kilogramms is 1000 gramms");
+    Assert("1 Kilogramm is 1000 Gramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Stoun) {
-    vector<string> args = { "1", "Kilogramm", "Stoun" };
+TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Stone) {
+    vector<string> args = { "1", "Kilogramm", "Stone" };
     Act(args);
-    Assert("1 kilogramms is 0.15748 stouns");
+    Assert("1 Kilogramm is 0.157473 Stone");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Funt) {
-    vector<string> args = { "1", "Kilogramm", "Funt" };
+TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Pound) {
+    vector<string> args = { "1", "Kilogramm", "Pound" };
     Act(args);
-    Assert("1 kilogramms is 2.205 funts");
+    Assert("1 Kilogramm is 2.205 Pound");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Uncia) {
-    vector<string> args = { "1", "Kilogramm", "Uncia" };
+TEST_F(MassConverterAppTest, Can_Convert_Kilogramm_To_Ounce) {
+    vector<string> args = { "1", "Kilogramm", "Ounce" };
     Act(args);
-    Assert("1 kilogramms is 35.274 uncia");
+    Assert("1 Kilogramm is 35.274 Ounce");
 }
 
 TEST_F(MassConverterAppTest, Can_Convert_Gramm_To_Tonn) {
     vector<string> args = { "1500", "Gramm", "Tonn" };
     Act(args);
-    Assert("1500 gramms is 0.0015 tonns");
+    Assert("1500 Gramm is 0.0015 Tonn");
 }
 
 TEST_F(MassConverterAppTest, Can_Convert_Gramm_To_Kilogramm) {
-    vector<string> args = { "1500", "Gramm", "Kilogramm" };
+    vector<string> args = { "1000", "Gramm", "Kilogramm" };
     Act(args);
-    Assert("1500 gramms is 1.5 kilogramms");
+    Assert("1000 Gramm is 1 Kilogramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Gramm_To_Stoun) {
-    vector<string> args = { "1500", "Gramm", "Stoun" };
+TEST_F(MassConverterAppTest, Can_Convert_Gramm_To_Stone) {
+    vector<string> args = { "1000", "Gramm", "Stone" };
     Act(args);
-    Assert("1500 gramms is 0.23621 stouns");
+    Assert("1000 Gramm is 0.157473 Stone");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Stoun_To_Tonn) {
-    vector<string> args = { "1500", "Stoun", "Tonn" };
+TEST_F(MassConverterAppTest, Can_Convert_Stone_To_Tonn) {
+    vector<string> args = { "1500", "Stone", "Tonn" };
     Act(args);
-    Assert("1500 stouns is 9.52544 tonns");
+    Assert("1500 Stone is 9.52544 Tonn");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Stoun_To_Kilogramm) {
-    vector<string> args = { "1500", "Stoun", "Kilogramm" };
+TEST_F(MassConverterAppTest, Can_Convert_Stone_To_Kilogramm) {
+    vector<string> args = { "0.157473", "Stone", "Kilogramm" };
     Act(args);
-    Assert("1500 stouns is 9525 kilogramms");
+    Assert("0.157473 Stone is 1 Kilogramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Stoun_To_Funt) {
-    vector<string> args = { "1500", "Stoun", "Funt" };
+TEST_F(MassConverterAppTest, Can_Convert_Stone_To_Pound) {
+    vector<string> args = { "0.157473", "Stone", "Pound" };
     Act(args);
-    Assert("1500 stouns is 21000 funts");
+    Assert("0.157473 Stone is 2.205 Pound");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Stoun_To_Uncia) {
-    vector<string> args = { "1500", "Stoun", "Uncia" };
+TEST_F(MassConverterAppTest, Can_Convert_Stone_To_Ounce) {
+    vector<string> args = { "1500", "Stone", "Ounce" };
     Act(args);
-    Assert("1500 stouns is 336000 uncia");
+    Assert("1500 Stone is 336000 Ounce");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Funt_To_Tonn) {
-    vector<string> args = { "1500", "Funt", "Tonn" };
+TEST_F(MassConverterAppTest, Can_Convert_Pound_To_Tonn) {
+    vector<string> args = { "2205", "Pound", "Tonn" };
     Act(args);
-    Assert("1500 funts is 0.680389 tonns");
+    Assert("2205 Pound is 1 Tonn");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Funt_To_Kilogramm) {
-    vector<string> args = { "1500", "Funt", "Kilogramm" };
+TEST_F(MassConverterAppTest, Can_Convert_Pound_To_Kilogramm) {
+    vector<string> args = { "1500", "Pound", "Kilogramm" };
     Act(args);
-    Assert("1500 funts is 680.272 kilogramms");
+    Assert("1500 Pound is 680.272 Kilogramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Funt_To_Gramm) {
-    vector<string> args = { "1500", "Funt", "Gramm" };
+TEST_F(MassConverterAppTest, Can_Convert_Pound_To_Gramm) {
+    vector<string> args = { "2.205", "Pound", "Gramm" };
     Act(args);
-    Assert("1500 funts is 680388 gramms");
+    Assert("2.205 Pound is 1000 Gramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Funt_To_Stoun) {
-    vector<string> args = { "1500", "Funt", "Stoun" };
+TEST_F(MassConverterAppTest, Can_Convert_Pound_To_Stone) {
+    vector<string> args = { "2.205", "Pound", "Stone" };
     Act(args);
-    Assert("1500 funts is 107.143 stouns");
+    Assert("2.205 Pound is 0.157473 Stone");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Funt_To_Uncia) {
-    vector<string> args = { "1500", "Funt", "Uncia" };
+TEST_F(MassConverterAppTest, Can_Convert_Pound_To_Ounce) {
+    vector<string> args = { "2.205", "Pound", "Ounce" };
     Act(args);
-    Assert("1500 funts is 24000 uncia");
+    Assert("2.205 Pound is 35.274 Ounce");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Uncia_To_Tonn) {
-    vector<string> args = { "1500", "Uncia", "Tonn" };
+TEST_F(MassConverterAppTest, Can_Convert_Ounce_To_Tonn) {
+    vector<string> args = { "1500", "Ounce", "Tonn" };
     Act(args);
-    Assert("1500 uncia is 0.0425242 tonns");
+    Assert("1500 Ounce is 0.0425242 Tonn");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Uncia_To_Kilogramm) {
-    vector<string> args = { "1500", "Uncia", "Kilogramm" };
+TEST_F(MassConverterAppTest, Can_Convert_Ounce_To_Kilogramm) {
+    vector<string> args = { "1500", "Ounce", "Kilogramm" };
     Act(args);
-    Assert("1500 uncia is 42.5242 kilogramms");
+    Assert("1500 Ounce is 42.5242 Kilogramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Uncia_To_Gramm) {
-    vector<string> args = { "1500", "Uncia", "Gramm" };
+TEST_F(MassConverterAppTest, Can_Convert_Ounce_To_Gramm) {
+    vector<string> args = { "35.274", "Ounce", "Gramm" };
     Act(args);
-    Assert("1500 uncia is 42525 gramms");
+    Assert("35.274 Ounce is 1000 Gramm");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Uncia_To_Stoun) {
-    vector<string> args = { "1500", "Uncia", "Stoun" };
+TEST_F(MassConverterAppTest, Can_Convert_Ounce_To_Stone) {
+    vector<string> args = { "35.274", "Ounce", "Stone" };
     Act(args);
-    Assert("1500 uncia is 6.69643 stouns");
+    Assert("35.274 Ounce is 0.157473 Stone");
 }
 
-TEST_F(MassConverterAppTest, Can_Convert_Uncia_To_Funt) {
-    vector<string> args = { "1500", "Uncia", "Funt" };
+TEST_F(MassConverterAppTest, Can_Convert_Ounce_To_Pound) {
+    vector<string> args = { "35.274", "Ounce", "Pound" };
     Act(args);
-    Assert("1500 uncia is 93.75 funts");
+    Assert("35.274 Ounce is 2.205 Pound");
 }
